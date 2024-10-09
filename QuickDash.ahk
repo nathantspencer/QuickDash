@@ -1,35 +1,39 @@
 ﻿#Requires AutoHotkey v2.0
 
-; Adjust this as desired to make the time window between hypen keystrokes
-; more or less lenient. Default is 300 milliseconds.
-TIME_THRESHOLD_MS := 300
+; Adjust this as desired to make the time window between hypen keystrokes that should be
+;combined into en or em dashes more or less lenient. The default is 400 milliseconds.
+TIME_THRESHOLD_MS := 400
 
 EN_DASH := "–"
 EM_DASH := "—"
 
-WAS_ENDASH := false
+PRIOR_ENDASH := false
+PRIOR_EMDASH := false
 
--::
+$-::
 {
-	global WAS_ENDASH
-	if (A_PriorKey == "-" and A_TimeSincePriorHotkey < TIME_THRESHOLD_MS)
+	Critical
+	global PRIOR_ENDASH, PRIOR_EMDASH
+	if (A_PriorKey == "-" && A_TimeSincePriorHotkey < TIME_THRESHOLD_MS && !PRIOR_EMDASH)
 	{
-		if (WAS_ENDASH)
+		if (PRIOR_ENDASH)
 		{
 			Send "{BackSpace}"
-			SendText EM_DASH
-			WAS_ENDASH := false
+			Send EM_DASH
+			PRIOR_ENDASH := false
+			PRIOR_EMDASH := true
 		}
 		else
 		{
 			Send "{BackSpace}"
-			SendText EN_DASH
-			WAS_ENDASH := true
+			Send EN_DASH
+			PRIOR_ENDASH := true
 		}
 	}
 	else
 	{
-		SendText "-"
-		WAS_ENDASH := false
+		Send "-"
+		PRIOR_ENDASH := false
+		PRIOR_EMDASH := false
 	}
 }
