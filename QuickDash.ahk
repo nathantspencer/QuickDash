@@ -1,5 +1,11 @@
 ﻿#Requires AutoHotkey v2.0
 
+; Don't use this hotkey in code editors, where "--" is often used intentionally. Add other
+; windows to exlude here if desired. AutoHotkey's Window Spy can be used to determine the
+; name of each: denenv.exe here is Microsoft Visual Studio, and code.exe is Visual Studio
+; Code.
+#HotIf !WinActive("ahk_exe devenv.exe") && !WinActive("ahk_exe code.exe")
+
 ; Adjust this as desired to make the time window between hypen keystrokes that should be
 ;combined into en or em dashes more or less lenient. The default is 400 milliseconds.
 TIME_THRESHOLD_MS := 400
