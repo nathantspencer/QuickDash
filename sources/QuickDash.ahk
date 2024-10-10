@@ -14,33 +14,36 @@ TIME_THRESHOLD_MS := 400
 EN_DASH := "–"
 EM_DASH := "—"
 
-PRIOR_ENDASH := false
-PRIOR_EMDASH := false
+PRIOR_EN_DASH := false
+PRIOR_EM_DASH := false
 
 $-::
 {
 	Critical
-	global PRIOR_ENDASH, PRIOR_EMDASH
-	if (A_PriorKey == "-" && A_TimeSincePriorHotkey < TIME_THRESHOLD_MS && !PRIOR_EMDASH)
+	global PRIOR_EN_DASH, PRIOR_EM_DASH
+	if (A_PriorKey == "-" && A_TimeSincePriorHotkey < TIME_THRESHOLD_MS && !PRIOR_EM_DASH)
 	{
-		if (PRIOR_ENDASH)
+		; If we just sent an en dash, make it an em dash
+		if (PRIOR_EN_DASH)
 		{
 			Send "{BackSpace}"
 			Send EM_DASH
-			PRIOR_ENDASH := false
-			PRIOR_EMDASH := true
+			PRIOR_EN_DASH := false
+			PRIOR_EM_DASH := true
 		}
+		; If we just sent a hyphen, make it an en dash
 		else
 		{
 			Send "{BackSpace}"
 			Send EN_DASH
-			PRIOR_ENDASH := true
+			PRIOR_EN_DASH := true
 		}
 	}
+	; Send a hyphen if it's the first thing sent (or if we just finished up an em dash)
 	else
 	{
 		Send "-"
-		PRIOR_ENDASH := false
-		PRIOR_EMDASH := false
+		PRIOR_EN_DASH := false
+		PRIOR_EM_DASH := false
 	}
 }
