@@ -1,2 +1,4 @@
-# QuickDash
-An AutoHotkey script for quickly typing en dashes and em dashes.
+
+![QuickDashLogoText](images/png/QuickDashLogoText.png)
+---
+QuickDash is an AutoHotkey script for quickly typing en and em dashes on Windows: a task that is particularly cumbersome for users of keyboard without numpads. Type two hypens to form an en dash, or three to form an em dash.
