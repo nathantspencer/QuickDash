@@ -1,7 +1,13 @@
 
 ![QuickDash Logo](images/png/QuickDashLogoText.png)
 ---
-QuickDash is an AutoHotkey script for quickly typing en and em dashes on Windows: a task that is particularly cumbersome for users of keyboard without numpads. Type two hypens to form an en dash, or three for an em dash.
+QuickDash is an AutoHotkey script for quickly typing en and em dashes on Windows: a task that is particularly cumbersome for users of keyboard without numpads.
+
+Type two hypens to form an en dash, or three for an em dash.
+
+- [Installing QuickDash](#installing-quickdash)
+- [Modifying QuickDash](#modifying-quickdash)
+- [FAQs](#faqs)
 
 # Installing QuickDash
 
@@ -17,7 +23,7 @@ QuickDash is Windows-only.
 
 ### Can I restrict QuickDash to operate only in certain programs?
 
-Yes, this can be achieved by modifying the `#HotIf` directive in [QuickDash.ahk](sources/QuickDash.ahk), shown below:
+Yes, this can be achieved by modifying the `#HotIf` directive in `QuickDash.ahk`, shown below:
 
 https://github.com/nathantspencer/QuickDash/blob/d5ba18980035a1b98cf9ca004dcc12e39b336e16/sources/QuickDash.ahk#L3-L8
 
