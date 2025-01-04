@@ -8,29 +8,41 @@ rem     (2) Installs QuickDash executable in AppData
 rem     (3) Places a symbolic link in the Startup directory
 rem     (4) Runs the executable for immediate use
 
+rem Ensure that QuickDash.exe exists in the current directory; a prerequisite for installation.
+
 if not exist QuickDash.exe (
     echo [91mINSTALLATION ERROR:[0m QuickDash.exe does not exist in the current directory.
     goto end
 )
 
+rem Kill any existing QuickDash processes prior to installation.
+
 echo Stopping execution of previous QuickDash installations...
 taskkill /im QuickDash.exe /f /fi "STATUS eq RUNNING" > nul
 
-rem TODO: Use xcopy here, interpret errors and print appropriate feedback.
-rem       Move to different location; only the shortcut should exist in Startup
+rem Copy the QuickDash executable to a QuickDash folder in AppData.
 
 echo Installing QuickDash executable...
-copy "QuickDash.exe" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup" > nul
+xcopy "QuickDash.exe" "%APPDATA%\QuickDash\" /y > nul
+if errorlevel 4 (
+    echo [91mINSTALLATION ERROR:[0m Initialization error during copy; ensure disk/memory space is available.
+    goto end
+)
+if errorlevel 5 (
+    echo [91mINSTALLATION ERROR:[0m Disk write error occurred during copy.
+    goto end
+)
+if not errorlevel 0 (
+    echo [91mINSTALLATION ERROR:[0m Unexpected error of level %errorlevel% occurred during copy.
+    goto end
+)
 
 rem TODO: Create the symbolic link via mklink
 
-rem TODO: Ensure that this launches correctly without affecting the installer window
-
 echo Launching QuickDash executable for immediate use...
-start "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\QuickDash.exe"
+start %APPDATA%\QuickDash\QuickDash.exe
 
-rem Herein lies the QuickDash logo art. Thanks to the need for escape characters and colors,
-rem it looks a little unsavory here.
+rem Herein lies the QuickDash logo art. Thanks to the use escape characters and colors, it looks a little unsavory here.
 
 echo:
 echo:
@@ -49,7 +61,7 @@ echo:
 echo:
 echo Need support? Visit github.com/nathantspencer/QuickDash.
 echo: 
-echo This window will close after 10 seconds or when any key is pressed.
+echo This window will close after 20 seconds or when any key is pressed.
 echo:
 
-timeout /t 10 > nul
+timeout /t 20 > nul
