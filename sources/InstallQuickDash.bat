@@ -24,6 +24,8 @@ rem TODO: Ensure that this launches correctly without affecting the installer wi
 start "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\QuickDash.exe"
 
 rem Herein lies the QuickDash logo art. Thanks to the need for escape characters, it looks a little unsavory here.
+rem To make edits, you can copy and paste it elsewhere and find and replace carats with nothing.
+rem Then find and replace instances of pipes and less-than with those same characters preceded by carats to escape.
 
 echo:
 echo        ______    _____            _           _      ______                     _       
