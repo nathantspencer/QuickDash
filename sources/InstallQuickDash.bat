@@ -3,39 +3,45 @@
 @echo off
 
 rem This is the QuickDash installation script, which:
-rem     (1) Installs QuickDash.exe in AppData
-rem     (2) Places a symbolic link in the Startup directory
-rem     (2) Runs the executable for immediate use
+rem     (1) Kills any existing QuickDash process
+rem     (2) Installs QuickDash executable in AppData
+rem     (3) Places a symbolic link in the Startup directory
+rem     (4) Runs the executable for immediate use
 
 if not exist QuickDash.exe (
-    echo INSTALLATION ERROR: QuickDash.exe does not exist in the current directory.
+    echo [91mINSTALLATION ERROR:[0m QuickDash.exe does not exist in the current directory.
     goto end
 )
+
+echo Stopping execution of previous QuickDash installations...
+taskkill /im QuickDash.exe /f /fi "STATUS eq RUNNING" > nul
 
 rem TODO: Use xcopy here, interpret errors and print appropriate feedback.
 rem       Move to different location; only the shortcut should exist in Startup
 
+echo Installing QuickDash executable...
 copy "QuickDash.exe" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup" > nul
 
 rem TODO: Create the symbolic link via mklink
 
 rem TODO: Ensure that this launches correctly without affecting the installer window
 
+echo Launching QuickDash executable for immediate use...
 start "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\QuickDash.exe"
 
-rem Herein lies the QuickDash logo art. Thanks to the need for escape characters, it looks a little unsavory here.
-rem To make edits, you can copy and paste it elsewhere and find and replace carats with nothing.
-rem Then find and replace instances of pipes and less-than with those same characters preceded by carats to escape.
+rem Herein lies the QuickDash logo art. Thanks to the need for escape characters and colors,
+rem it looks a little unsavory here.
 
 echo:
-echo        ______    _____            _           _      ______                     _       
-echo       ^|______^|  / ___ \          '_'         ^| ^|    ^|  ___ \                   ^| ^|      
-echo       _______  ^| /   \ ^|  _   _   _    ____  ^| ^| __ ^| ^|   \ ^|   ___ _   _____  ^| ^|___   
-echo      ^|_______^| ^| ^|  _^| ^| ^| ^| ^| ^| ^| ^|  /  __^| ^| ^|/ / ^| ^|   ^| ^|  / __` ^| /  ___^| ^| '__ \  
-echo   ___________  ^| \__\ `^| ^| \_^| ^| ^| ^| ^|  '__  ^|   ^<  ^| ^|___/ ^| ^| '__^| ^| \___  \ ^| ^|  ` ^| 
-echo  ^|___________^|  \___,\_\  \__,_^| ^|_^|  \____^| ^|_^|\_\ ^|______/   \___,_^| ^|____,/ ^|_^|  ^|_^| 
 echo:
-echo                           H A S   B E E N   I N S T A L L E D   S U C C E S S F U L L Y 
+echo        [91m______[0m    _____            _           _      ______                     _       
+echo       [91m^|______^|[0m  / ___ \          '_'         ^| ^|    ^|  ___ \                   ^| ^|      
+echo       [93m_______[0m  ^| /   \ ^|  _   _   _    ____  ^| ^| __ ^| ^|   \ ^|   ___ _   _____  ^| ^|___   
+echo      [93m^|_______^|[0m ^| ^|  _^| ^| ^| ^| ^| ^| ^| ^|  /  __^| ^| ^|/ / ^| ^|   ^| ^|  / __` ^| /  ___^| ^| '__ \  
+echo   [92m^___________[0m  ^| \__\ `^| ^| \_^| ^| ^| ^| ^|  '__  ^|   ^<  ^| ^|___/ ^| ^| '__^| ^| \___  \ ^| ^|  ` ^| 
+echo  [92m^|___________^|[0m  \___,\_\  \__,_^| ^|_^|  \____^| ^|_^|\_\ ^|______/   \___,_^| ^|____,/ ^|_^|  ^|_^| 
+echo:
+echo                           [96mH A S   B E E N   I N S T A L L E D   S U C C E S S F U L L Y[0m 
 echo:
 
 :end
