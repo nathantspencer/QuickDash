@@ -1,4 +1,6 @@
 ﻿#Requires AutoHotkey v2.0
+#SingleInstance Force
+
 
 ; Don't use this hotkey in console windows and code editors, where "--" is often used
 ; intentionally. Add other windows to exlude here if desired. AutoHotkey's Window Spy
