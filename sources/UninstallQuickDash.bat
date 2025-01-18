@@ -1,5 +1,5 @@
 @cls
-@title QuickDash Installer
+@title QuickDash Uninstaller
 @echo off
 
 rem This is the QuickDash uninstall script, which:
