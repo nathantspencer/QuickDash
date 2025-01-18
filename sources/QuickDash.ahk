@@ -1,8 +1,14 @@
 ﻿#Requires AutoHotkey v2.0
 #SingleInstance Force
 
+; Compiler directives to set property values for the QuickDash executable. When ahk_exe
+; new version is released, the version field at the top should be incremented.
+;@Ahk2Exe-SetVersion 1.0.0
+;@Ahk2Exe-SetName QuickDash
+;@Ahk2Exe-SetDescription AutoHotkey shortcut for quickly typing en and em dashes.
+;@Ahk2Exe-SetCopyright © 2025 Nathan Spencer. All rights reserved.
 
-; Don't use this hotkey in console windows and code editors, where "--" is often used
+; Disables this hotkey in console windows and code editors, where "--" is often used
 ; intentionally. Add other windows to exlude here if desired. AutoHotkey's Window Spy
 ; can be used to determine the name of each.
 #HotIf !WinActive("ahk_exe devenv.exe")
@@ -10,7 +16,7 @@
     && !WinActive("ahk_exe WindowsTerminal.exe")
 
 ; Adjust this as desired to make the time window between hypen keystrokes that should be
-;combined into en or em dashes more or less lenient. The default is 400 milliseconds.
+; combined into en or em dashes more or less lenient. The default is 400 milliseconds.
 TIME_THRESHOLD_MS := 400
 
 EN_DASH := "–"
