@@ -5,7 +5,7 @@
 ; new version is released, the version field at the top should be incremented.
 ;@Ahk2Exe-SetVersion 1.0.0
 ;@Ahk2Exe-SetName QuickDash
-;@Ahk2Exe-SetDescription AutoHotkey shortcut for quickly typing en and em dashes.
+;@Ahk2Exe-SetDescription QuickDash Keyboard Shortcuts
 ;@Ahk2Exe-SetCopyright © 2025 Nathan Spencer. All rights reserved.
 
 ; Disables this hotkey in console windows and code editors, where "--" is often used
