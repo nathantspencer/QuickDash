@@ -6,8 +6,8 @@ QuickDash is an AutoHotkey script for quickly typing en and em dashes on Windows
 Type two hypens to form an en dash, or three for an em dash.
 
 - [Installing QuickDash](#installing-quickdash)
-- [Uninstalling QuickDash](#uninstalling-quickdash)
 - [Modifying QuickDash](#modifying-quickdash)
+- [Uninstalling QuickDash](#uninstalling-quickdash)
 - [FAQs](#faqs)
 
 # Installing QuickDash
@@ -19,6 +19,8 @@ Type two hypens to form an en dash, or three for an em dash.
 
 ![image](https://github.com/user-attachments/assets/68b4f3b2-e7b3-47ba-b175-6a8bf91c461b)
 
+# Modifying QuickDash
+
 # Uninstalling QuickDash
 
  - Navigate to the [latest release on the releases page](https://github.com/nathantspencer/QuickDash/releases)
@@ -26,9 +28,7 @@ Type two hypens to form an en dash, or three for an em dash.
  - Open to the folder on your PC where this file was downloaded, then double-click it
  - Successful uninstallation will display a result like the one shown below; QuickDash is deactivated immediately
 
-![image](https://github.com/user-attachments/assets/36c1ec89-3deb-42fd-aaca-a150c28d2bf1)
-
-# Modifying QuickDash
+![image](https://github.com/user-attachments/assets/86a0e6b4-c69d-4ad0-a09b-28052b0bef92)
 
 # FAQs
 
