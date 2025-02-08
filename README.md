@@ -21,6 +21,28 @@ Type two hypens to form an en dash, or three for an em dash.
 
 # Modifying QuickDash
 
+QuickDash can be modified to fit your needs. See [the FAQs](#faqs) for examples of modifying QuickDash to:
+
+- Restrict it to operate only in certain programs
+- Adjust the threshold for how quickly hyphens must be typed to form en or em dashes
+
+Most modifications will be done by first modifying the AutoHotkey script [`QuickDash.ahk`](sources/QuickDash.ahk). To run the modified script directly or to compile it into an executable `QuickDash.exe`, you'll need to install [AutoHotkey](https://www.autohotkey.com/).
+
+Once AutoHotkey is installed, and before testing a modified version of the script, be sure the [QuickDash is uninstalled](#uninstalling-quickdash) to avoid conflicting behavior. Then you can test your changes by running the following command from the `sources` directory:
+
+```
+AutoHotkey.exe QuickDash.ahk
+```
+
+The hotkeys should immediately become active. If you make additional changes, you can run the above command again, which will replace the previously bound hotkey behavior with the new one.
+
+To stop the hotkeys, you can find and end the task for AutoHotkey from Task Manager, shown below:
+
+![image](https://github.com/user-attachments/assets/b768a3d4-f673-44f3-bab6-1d2b2e8333e1)
+
+When you are satisfied with the changes, use AutoHotkey Dash—an executable installed with AutoHotkey—to compile `QuickDash.ahk` into `QuickDash.exe`. Ensure that the new version of `QuickDash.exe` is present alongside the script `InstallQuickDash.bat`, then double-click the latter to run the installation process. The modified version of QuickDash will be activated immediately.
+
+
 # Uninstalling QuickDash
 
  - Navigate to the [latest release on the releases page](https://github.com/nathantspencer/QuickDash/releases)
