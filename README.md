@@ -16,7 +16,7 @@ Type two hypens to form an en dash, or three for an em dash.
 
  - Navigate to the [latest release on the releases page](https://github.com/nathantspencer/QuickDash/releases)
  - Download `QuickDash.exe` and `InstallQuickDash.bat`
- - Open to the folder on your PC where they were downloaded, then double-click `InstallQuickDash.bat`
+ - Open the folder on your PC where they were downloaded, then double-click `InstallQuickDash.bat`
  - Successful installation will display a result like the one shown below; QuickDash is active immediately
 
 ![image](https://github.com/user-attachments/assets/97e26b98-d9cb-4f56-bce4-a4389b101ba9)
@@ -49,7 +49,7 @@ When you are satisfied with the changes, use AutoHotkey Dash—an executable ins
 
  - Navigate to the [latest release on the releases page](https://github.com/nathantspencer/QuickDash/releases)
  - Download `UninstallQuickDash.bat`
- - Open to the folder on your PC where this file was downloaded, then double-click it
+ - Open the folder on your PC where this file was downloaded, then double-click it
  - Successful uninstallation will display a result like the one shown below; QuickDash is deactivated immediately
 
 ![image](https://github.com/user-attachments/assets/90473179-88a5-4604-912c-a58f737d9dfc)
